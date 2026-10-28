@@ -1,0 +1,45 @@
+# Sakshi Yadav & Co.
+
+> Sakshi Yadav & Co. is a Chartered Accountancy firm in Sector 18, Noida, led by CA Sakshi Yadav (ICAI member). The firm advises individuals, startups and growing businesses on income tax, GST, TDS, audit and assurance, company incorporation, ROC compliance and financial reporting — in person in Noida and online across India.
+
+## Key facts
+- Firm: Sakshi Yadav & Co., Chartered Accountants
+- Founder & Principal: CA Sakshi Yadav — Chartered Accountant · Member, ICAI
+- Office: SF-57, Ansal Fortune, Sector 18, Noida, Uttar Pradesh 201301, India
+- Phone / WhatsApp: +91 87962 15611
+- Email: contact@sakshiyadavandco.in
+- Hours: Mon – Sat, 10:00 AM – 7:00 PM
+- Service area: Noida, Greater Noida, Ghaziabad, Delhi NCR in person; all of India online
+- Website: https://sakshiyadavandco.in/
+- Fees: quoted per assignment in writing (ICAI guidelines restrict advertising of fees)
+
+## Services
+- [Income Tax Return Filing & Tax Planning](https://sakshiyadavandco.in/services/income-tax): ITR filing for individuals, businesses & professionals with maximum tax savings.
+- [GST Registration & GST Return Filing](https://sakshiyadavandco.in/services/gst-services): Complete GST compliance — registration to annual returns, notices & audit.
+- [Tax Audit & Statutory Audit](https://sakshiyadavandco.in/services/tax-audit): Comprehensive Tax & Statutory Audit services for businesses and corporations.
+- [TDS Return & Compliance](https://sakshiyadavandco.in/services/tds-compliance): Quarterly TDS/TCS return filing, deduction computation & Form 16 issuance.
+- [Business Registration & Setup](https://sakshiyadavandco.in/services/business-registration): One-stop business setup — Proprietorship to Private Limited, FSSAI, IEC & NGO registrations.
+- [ROC / Corporate Compliance](https://sakshiyadavandco.in/services/roc-compliance): Annual filings, board resolutions, minutes & all MCA/ROC compliance for companies.
+- [Project Reports & CMA Data](https://sakshiyadavandco.in/services/project-reports): Bank loan project reports, CMA data & feasibility studies for all business types.
+- [CA Certificates & Attestations](https://sakshiyadavandco.in/services/ca-certificates): Turnover, net worth, export and other certificates issued and signed by a practising Chartered Accountant.
+- [Loan Documentation & Bank Liaison](https://sakshiyadavandco.in/services/loan-documentation): Complete loan file preparation — home, business, MSME & personal loan documentation.
+- [F&O / Capital Gain Tax](https://sakshiyadavandco.in/services/fno-capital-gain): Specialised ITR filing for F&O traders, equity investors & capital gain computation.
+
+## Pages
+- [Home](https://sakshiyadavandco.in/): Overview of the firm and all practice areas
+- [About](https://sakshiyadavandco.in/about): The firm and CA Sakshi Yadav
+- [Contact](https://sakshiyadavandco.in/contact): Address, phone, email, hours and enquiry form
+- [Insights](https://sakshiyadavandco.in/blog): Guides on income tax, GST, TDS and business registration
+
+## Articles
+- [How to File ITR Online: A Complete Guide for Salaried Employees (FY 2025-26)](https://sakshiyadavandco.in/blog/how-to-file-itr-online-salaried-employees): Every salaried person whose gross income exceeds ₹4 lakh under the new regime must file an ITR. Here is exactly how to do it step by step, which form to pick, and the most common mistakes to avoid.
+- [GST Registration in India: Who Needs It, Threshold Limits & How to Apply](https://sakshiyadavandco.in/blog/gst-registration-threshold-limits-how-to-apply): If your business turnover crosses ₹40 lakh (goods) or ₹20 lakh (services), GST registration is mandatory. Here is everything you need to know before applying.
+- [Old Tax Regime vs New Tax Regime (FY 2025-26): Which One Saves You More?](https://sakshiyadavandco.in/blog/old-vs-new-tax-regime-which-saves-more): The government made the new tax regime the default in 2023. But that doesn't mean it's better for everyone. Here's a straightforward comparison with real numbers to help you decide.
+- [TDS on Salary, Rent & Professional Fees: Rates, Thresholds & Filing Guide](https://sakshiyadavandco.in/blog/tds-rates-thresholds-salary-rent-professional-fees): If you're paying salary, rent above ₹50,000/month, or professional fees above ₹50,000 a year — you're probably required to deduct TDS. Here's a complete guide to the rates, due dates, and filing process.
+- [Received an Income Tax Notice? Here's Exactly What to Do](https://sakshiyadavandco.in/blog/income-tax-notice-what-to-do): Getting an income tax notice is scary — but it's not always a big deal. Most notices are informational or routine. Here's how to understand which notice you got and how to respond correctly.
+- [GSTR-1, GSTR-3B & GSTR-9: Which GST Return Do You Need to File?](https://sakshiyadavandco.in/blog/gstr-1-vs-gstr-3b-vs-gstr-9): GST compliance involves multiple returns with different due dates. If you're confused about which return to file when, this guide breaks it down in simple terms with actual due dates.
+- [Sole Proprietorship vs Private Limited Company vs LLP: Which Business Structure Should You Choose?](https://sakshiyadavandco.in/blog/proprietorship-vs-private-limited-vs-llp): Choosing the right business structure at the start saves you years of headache later. Here's a no-fluff comparison of the three most popular options for Indian businesses.
+- [GST for Freelancers & Consultants in India: Everything You Need to Know](https://sakshiyadavandco.in/blog/gst-for-freelancers-and-consultants): Are you a freelancer or consultant? Here's whether you need GST registration, how to raise compliant invoices, and what to do about clients who pay you from abroad.
+
+## Optional
+- [Full text for language models](https://sakshiyadavandco.in/llms-full.txt)

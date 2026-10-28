@@ -1,0 +1,238 @@
+/* ═══════════════════════════════════════════════════════════
+   Sakshi Yadav & Co. — Global CSS
+   Design system: Ink navy #0D1F3A · Antique gold #B08D57 · Ivory #F8F5EF
+   Type: Cormorant Garamond (display) + Manrope (text)
+═══════════════════════════════════════════════════════════ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink: #0D1F3A;
+  --ink-900: #08162B;
+  --gold: #B08D57;
+  --gold-700: #775B35;
+  --ivory: #F8F5EF;
+  --line: #E8E1D4;
+  --muted: #5B6577;
+  --topbar-h: 36px;
+  --nav-h: 72px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--topbar-h) + var(--nav-h) + 12px);
+    -webkit-tap-highlight-color: transparent;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    @apply font-sans text-ink-800 bg-ivory antialiased;
+    overflow-x: hidden;
+    line-height: 1.65;
+    font-feature-settings: 'ss01', 'cv11';
+  }
+
+  h1, h2, h3, h4 {
+    text-wrap: balance;
+  }
+
+  /* Cormorant defaults to old-style figures ("01" reads as "oi") */
+  .font-serif, .display {
+    font-variant-numeric: lining-nums;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  ::selection {
+    background: rgba(176, 141, 87, 0.28);
+    color: var(--ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: var(--ivory); }
+  ::-webkit-scrollbar-thumb { background: #C9B48F; border-radius: 8px; border: 2px solid var(--ivory); }
+  ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .section {
+    @apply py-20 sm:py-24 lg:py-28;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-3 text-[11px] font-bold uppercase tracking-eyebrow text-gold-700;
+  }
+  .eyebrow::before {
+    content: '';
+    @apply block h-px w-8 bg-gold-500;
+  }
+  .eyebrow-light {
+    @apply text-gold-300;
+  }
+  .eyebrow-light::before {
+    @apply bg-gold-400;
+  }
+
+  .display {
+    @apply font-serif font-semibold tracking-[-0.01em] text-ink-800;
+    line-height: 1.05;
+  }
+
+  .h-section {
+    @apply display text-4xl sm:text-5xl lg:text-[3.5rem];
+  }
+
+  .lede {
+    @apply text-base sm:text-lg leading-relaxed text-muted;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2.5 rounded-full px-6 py-3.5 text-sm font-semibold tracking-wide transition-all duration-300 min-h-[48px];
+  }
+  .btn-primary {
+    @apply btn bg-ink-800 text-white hover:bg-ink-900 hover:shadow-lift hover:-translate-y-0.5;
+  }
+  .btn-gold {
+    @apply btn bg-gold-500 text-ink-900 hover:bg-gold-400 hover:shadow-gold hover:-translate-y-0.5;
+  }
+  .btn-outline {
+    @apply btn border border-ink-800/20 text-ink-800 hover:border-ink-800 hover:bg-ink-800 hover:text-white;
+  }
+  .btn-outline-light {
+    @apply btn border border-white/25 text-white hover:border-gold-300 hover:text-gold-200;
+  }
+
+  .card {
+    @apply rounded-2xl border border-line bg-paper shadow-soft;
+  }
+
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    transition: background-size 0.35s ease;
+  }
+  .link-underline:hover {
+    background-size: 100% 1px;
+  }
+
+  .gold-rule {
+    @apply h-px w-full;
+    background: linear-gradient(90deg, transparent, rgba(176,141,87,0.6), transparent);
+  }
+
+  .grid-lines {
+    background-image:
+      linear-gradient(rgba(201,164,101,0.07) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,164,101,0.07) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  .scrollbar-none { scrollbar-width: none; }
+  .scrollbar-none::-webkit-scrollbar { display: none; }
+
+  .thin-scroll { scrollbar-width: thin; scrollbar-color: #C9B48F transparent; }
+  .thin-scroll::-webkit-scrollbar { width: 5px; }
+  .thin-scroll::-webkit-scrollbar-thumb { background: #C9B48F; border-radius: 4px; border: 0; }
+
+  /* Long-form article and legal copy */
+  .prose-firm h2 { @apply font-serif text-2xl sm:text-3xl font-semibold text-ink-800 mt-10 mb-4; }
+  .prose-firm h3 { @apply font-serif text-xl sm:text-2xl font-semibold text-ink-800 mt-8 mb-3; }
+  .prose-firm p  { @apply text-[15px] sm:text-base leading-[1.8] text-ink-600 mb-4; }
+  .prose-firm ul { @apply list-disc pl-5 space-y-2 mb-4 text-[15px] sm:text-base text-ink-600 marker:text-gold-500; }
+  .prose-firm a  { @apply text-gold-700 underline underline-offset-4 decoration-gold-300 hover:decoration-gold-700; }
+  .prose-firm strong { @apply text-ink-800 font-semibold; }
+}
+
+/* ─── SCROLL REVEAL (IntersectionObserver driven) ────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.8s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes loaderBar {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+.animate-fade-up { animation: fadeUp 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.delay-1 { animation-delay: 0.08s; }
+.delay-2 { animation-delay: 0.16s; }
+.delay-3 { animation-delay: 0.24s; }
+.delay-4 { animation-delay: 0.32s; }
+
+/* ─── ACCORDION (grid-rows trick — animates to auto height) ── */
+.accordion-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.accordion-panel[data-open='true'] {
+  grid-template-rows: 1fr;
+}
+.accordion-panel > div {
+  overflow: hidden;
+}
+
+/* ─── STATIC PRE-RENDERED CONTENT (replaced when React mounts) ── */
+.prerender {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 140px 20px 80px;
+  font-family: Manrope, system-ui, sans-serif;
+  color: #0D1F3A;
+}
+.prerender h1 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 2.6rem; line-height: 1.1; margin-bottom: 1rem; }
+.prerender h2 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.6rem; margin: 2rem 0 .75rem; }
+.prerender p, .prerender li { color: #5B6577; line-height: 1.7; }
+.prerender ul { padding-left: 1.2rem; list-style: disc; }
+.prerender a { color: #775B35; }
+
+/* ─── SAFE AREA ───────────────────────────────────────────── */
+.pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}
+
+@media print {
+  .no-print { display: none !important; }
+  body { background: white; }
+}
