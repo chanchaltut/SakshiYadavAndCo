@@ -1,7 +1,7 @@
 /* ═══════════════════════════════════════════════════════════
    Sakshi Yadav & Co. — Global CSS
-   Design system: Ink navy #0D1F3A · Antique gold #B08D57 · Ivory #F8F5EF
-   Type: Cormorant Garamond (display) + Manrope (text)
+   Design system: Corporate red #C01530 · White #FFFFFF · Ivory #FBFAF7 · Navy text #0A132B
+   Type: Plus Jakarta Sans (display) + Inter (text)
 ═══════════════════════════════════════════════════════════ */
 
 @tailwind base;
@@ -9,13 +9,13 @@
 @tailwind utilities;
 
 :root {
-  --ink: #0D1F3A;
-  --ink-900: #08162B;
-  --gold: #B08D57;
-  --gold-700: #775B35;
-  --ivory: #F8F5EF;
-  --line: #E8E1D4;
-  --muted: #5B6577;
+  --red: #C01530;
+  --red-dark: #9E0E25;
+  --red-soft: rgba(192, 21, 48, 0.08);
+  --navy: #0A132B;
+  --ivory: #FBFAF7;
+  --line: #EDE7E8;
+  --muted: #667085;
   --topbar-h: 36px;
   --nav-h: 72px;
 }
@@ -30,19 +30,14 @@
   }
 
   body {
-    @apply font-sans text-ink-800 bg-ivory antialiased;
+    @apply font-sans text-navy-800 bg-white antialiased;
     overflow-x: hidden;
     line-height: 1.65;
-    font-feature-settings: 'ss01', 'cv11';
+    font-feature-settings: 'cv11', 'ss01';
   }
 
   h1, h2, h3, h4 {
     text-wrap: balance;
-  }
-
-  /* Cormorant defaults to old-style figures ("01" reads as "oi") */
-  .font-serif, .display {
-    font-variant-numeric: lining-nums;
   }
 
   p {
@@ -56,20 +51,21 @@
   }
 
   ::selection {
-    background: rgba(176, 141, 87, 0.28);
-    color: var(--ink);
+    background: rgba(192, 21, 48, 0.16);
+    color: var(--navy);
   }
 
   :focus-visible {
-    outline: 2px solid var(--gold);
+    outline: 2px solid var(--red);
     outline-offset: 3px;
     border-radius: 4px;
   }
 
-  ::-webkit-scrollbar { width: 8px; }
-  ::-webkit-scrollbar-track { background: var(--ivory); }
-  ::-webkit-scrollbar-thumb { background: #C9B48F; border-radius: 8px; border: 2px solid var(--ivory); }
-  ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: #ffffff; }
+  ::-webkit-scrollbar-thumb { background: var(--red); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--red-dark); }
+  html { scrollbar-width: thin; scrollbar-color: var(--red) #ffffff; }
 }
 
 @layer components {
@@ -81,27 +77,28 @@
     @apply py-20 sm:py-24 lg:py-28;
   }
 
+  /* Pill tag above section headings */
   .eyebrow {
-    @apply inline-flex items-center gap-3 text-[11px] font-bold uppercase tracking-eyebrow text-gold-700;
+    @apply inline-flex items-center gap-2 rounded-full border border-brand-500/25 bg-brand-500/[0.08] px-4 py-1.5 text-[11px] font-bold uppercase tracking-eyebrow text-brand-500;
   }
   .eyebrow::before {
     content: '';
-    @apply block h-px w-8 bg-gold-500;
+    @apply block h-1.5 w-1.5 rounded-full bg-brand-500;
   }
   .eyebrow-light {
-    @apply text-gold-300;
+    @apply border-white/30 bg-white/10 text-white;
   }
   .eyebrow-light::before {
-    @apply bg-gold-400;
+    @apply bg-white;
   }
 
   .display {
-    @apply font-serif font-semibold tracking-[-0.01em] text-ink-800;
-    line-height: 1.05;
+    @apply font-display font-extrabold tracking-[-0.02em] text-navy-800;
+    line-height: 1.16;
   }
 
   .h-section {
-    @apply display text-4xl sm:text-5xl lg:text-[3.5rem];
+    @apply display text-[1.9rem] sm:text-[2.3rem] lg:text-[2.65rem];
   }
 
   .lede {
@@ -109,23 +106,30 @@
   }
 
   .btn {
-    @apply inline-flex items-center justify-center gap-2.5 rounded-full px-6 py-3.5 text-sm font-semibold tracking-wide transition-all duration-300 min-h-[48px];
+    @apply inline-flex items-center justify-center gap-2.5 rounded-full px-7 py-3.5 text-sm font-bold tracking-wide transition-all duration-300 min-h-[48px];
   }
   .btn-primary {
-    @apply btn bg-ink-800 text-white hover:bg-ink-900 hover:shadow-lift hover:-translate-y-0.5;
+    @apply btn bg-brand-500 text-white hover:bg-brand-600 hover:shadow-brand hover:-translate-y-0.5 active:scale-[0.98];
   }
-  .btn-gold {
-    @apply btn bg-gold-500 text-ink-900 hover:bg-gold-400 hover:shadow-gold hover:-translate-y-0.5;
+  .btn-light {
+    @apply btn bg-white text-brand-500 hover:bg-brand-50 hover:-translate-y-0.5 hover:shadow-lift;
   }
   .btn-outline {
-    @apply btn border border-ink-800/20 text-ink-800 hover:border-ink-800 hover:bg-ink-800 hover:text-white;
+    @apply btn border-2 border-brand-500 text-brand-500 hover:bg-brand-600 hover:border-brand-600 hover:text-white;
   }
   .btn-outline-light {
-    @apply btn border border-white/25 text-white hover:border-gold-300 hover:text-gold-200;
+    @apply btn border-2 border-white/60 text-white hover:border-white hover:bg-white hover:text-brand-500;
   }
 
   .card {
-    @apply rounded-2xl border border-line bg-paper shadow-soft;
+    @apply rounded-2xl border border-line bg-white shadow-soft;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:border-brand-500/40;
+  }
+  .card-hover:hover {
+    box-shadow: 0 12px 40px rgba(192, 21, 48, 0.12);
   }
 
   .link-underline {
@@ -139,39 +143,46 @@
     background-size: 100% 1px;
   }
 
-  .gold-rule {
+  .brand-rule {
     @apply h-px w-full;
-    background: linear-gradient(90deg, transparent, rgba(176,141,87,0.6), transparent);
+    background: linear-gradient(90deg, transparent, rgba(192,21,48,0.45), transparent);
   }
 
-  .grid-lines {
-    background-image:
-      linear-gradient(rgba(201,164,101,0.07) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(201,164,101,0.07) 1px, transparent 1px);
-    background-size: 64px 64px;
+  /* Faint red dot grid used behind light sections */
+  .dot-bg {
+    background-image: radial-gradient(circle, rgba(192,21,48,0.08) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+  .dot-bg-light {
+    background-image: radial-gradient(circle, rgba(255,255,255,0.14) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  .red-gradient {
+    background: linear-gradient(135deg, #C01530 0%, #A8102A 55%, #8B0019 100%);
   }
 
   .scrollbar-none { scrollbar-width: none; }
   .scrollbar-none::-webkit-scrollbar { display: none; }
 
-  .thin-scroll { scrollbar-width: thin; scrollbar-color: #C9B48F transparent; }
+  .thin-scroll { scrollbar-width: thin; scrollbar-color: var(--red) transparent; }
   .thin-scroll::-webkit-scrollbar { width: 5px; }
-  .thin-scroll::-webkit-scrollbar-thumb { background: #C9B48F; border-radius: 4px; border: 0; }
+  .thin-scroll::-webkit-scrollbar-thumb { background: var(--red); border-radius: 4px; border: 0; }
 
   /* Long-form article and legal copy */
-  .prose-firm h2 { @apply font-serif text-2xl sm:text-3xl font-semibold text-ink-800 mt-10 mb-4; }
-  .prose-firm h3 { @apply font-serif text-xl sm:text-2xl font-semibold text-ink-800 mt-8 mb-3; }
-  .prose-firm p  { @apply text-[15px] sm:text-base leading-[1.8] text-ink-600 mb-4; }
-  .prose-firm ul { @apply list-disc pl-5 space-y-2 mb-4 text-[15px] sm:text-base text-ink-600 marker:text-gold-500; }
-  .prose-firm a  { @apply text-gold-700 underline underline-offset-4 decoration-gold-300 hover:decoration-gold-700; }
-  .prose-firm strong { @apply text-ink-800 font-semibold; }
+  .prose-firm h2 { @apply font-display text-2xl sm:text-[1.7rem] font-bold tracking-[-0.02em] text-navy-800 mt-10 mb-4; }
+  .prose-firm h3 { @apply font-display text-xl sm:text-[1.35rem] font-bold tracking-[-0.015em] text-navy-800 mt-8 mb-3; }
+  .prose-firm p  { @apply text-[15px] sm:text-base leading-[1.8] text-navy-600 mb-4; }
+  .prose-firm ul { @apply list-disc pl-5 space-y-2 mb-4 text-[15px] sm:text-base text-navy-600 marker:text-brand-500; }
+  .prose-firm a  { @apply text-brand-500 underline underline-offset-4 decoration-brand-200 hover:decoration-brand-500; }
+  .prose-firm strong { @apply text-navy-800 font-semibold; }
 }
 
 /* ─── SCROLL REVEAL (IntersectionObserver driven) ────────── */
 .reveal {
   opacity: 0;
   transform: translateY(18px);
-  transition: opacity 0.8s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition: opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 .reveal.is-visible {
   opacity: 1;
@@ -182,11 +193,12 @@
   from { opacity: 0; transform: translateY(16px); }
   to   { opacity: 1; transform: none; }
 }
-@keyframes loaderBar {
-  from { transform: scaleX(0); }
-  to   { transform: scaleX(1); }
+@keyframes pulseRed {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(192, 21, 48, 0.4); }
+  50%      { box-shadow: 0 0 0 8px rgba(192, 21, 48, 0); }
 }
-.animate-fade-up { animation: fadeUp 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.animate-fade-up { animation: fadeUp 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.pulse-red { animation: pulseRed 2s infinite; }
 .delay-1 { animation-delay: 0.08s; }
 .delay-2 { animation-delay: 0.16s; }
 .delay-3 { animation-delay: 0.24s; }
@@ -210,14 +222,14 @@
   max-width: 64rem;
   margin: 0 auto;
   padding: 140px 20px 80px;
-  font-family: Manrope, system-ui, sans-serif;
-  color: #0D1F3A;
+  font-family: Inter, system-ui, sans-serif;
+  color: #0A132B;
 }
-.prerender h1 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 2.6rem; line-height: 1.1; margin-bottom: 1rem; }
-.prerender h2 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.6rem; margin: 2rem 0 .75rem; }
-.prerender p, .prerender li { color: #5B6577; line-height: 1.7; }
+.prerender h1 { font-family: 'Plus Jakarta Sans', Inter, sans-serif; font-weight: 800; font-size: 2.4rem; line-height: 1.12; letter-spacing: -0.02em; margin-bottom: 1rem; }
+.prerender h2 { font-family: 'Plus Jakarta Sans', Inter, sans-serif; font-weight: 700; font-size: 1.5rem; margin: 2rem 0 .75rem; }
+.prerender p, .prerender li { color: #667085; line-height: 1.7; }
 .prerender ul { padding-left: 1.2rem; list-style: disc; }
-.prerender a { color: #775B35; }
+.prerender a { color: #C01530; }
 
 /* ─── SAFE AREA ───────────────────────────────────────────── */
 .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); }
@@ -236,3 +248,15 @@
   .no-print { display: none !important; }
   body { background: white; }
 }
+
+/* ─── SHIMMER (primary buttons) ──────────────────────────── */
+.btn-shimmer { position: relative; overflow: hidden; }
+.btn-shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.22) 50%, transparent 100%);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+.btn-shimmer:hover::after { transform: translateX(100%); }

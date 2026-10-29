@@ -9,7 +9,7 @@ import useReveal from '../hooks/useReveal';
 const ArticleCard = ({ article, featured = false }) => (
   <Link
     to={`/blog/${article.slug}`}
-    className={`group flex h-full overflow-hidden rounded-[22px] border border-line bg-paper shadow-soft transition-all duration-500 hover:-translate-y-1 hover:border-gold-300 hover:shadow-lift ${
+    className={`group flex h-full overflow-hidden rounded-[22px] border border-line bg-paper shadow-soft transition-all duration-500 hover:-translate-y-1 hover:border-brand-300 hover:shadow-lift ${
       featured ? 'flex-col lg:flex-row' : 'flex-col'
     }`}
   >
@@ -23,17 +23,17 @@ const ArticleCard = ({ article, featured = false }) => (
     </div>
     <div className={`flex flex-1 flex-col p-6 sm:p-7 ${featured ? 'lg:p-10' : ''}`}>
       <p className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[12px] text-muted">
-        <span className="font-bold uppercase tracking-[0.18em] text-gold-700">{article.category}</span>
+        <span className="font-bold uppercase tracking-[0.18em] text-brand-500">{article.category}</span>
         <span aria-hidden="true">·</span>
         <time dateTime={article.isoDate}>{article.date}</time>
         <span aria-hidden="true">·</span>
         <span>{article.readTime}</span>
       </p>
-      <h2 className={`mt-4 font-serif font-semibold leading-tight text-ink-800 transition-colors group-hover:text-gold-700 ${featured ? 'text-3xl sm:text-4xl' : 'text-2xl'}`}>
+      <h2 className={`mt-4 font-display font-bold leading-tight text-navy-800 transition-colors group-hover:text-brand-500 ${featured ? 'text-3xl sm:text-4xl' : 'text-2xl'}`}>
         {article.title}
       </h2>
       <p className="mt-3 line-clamp-3 text-[14.5px] leading-relaxed text-muted">{article.excerpt}</p>
-      <span className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-ink-800">
+      <span className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-navy-800">
         Read article <i className="ri-arrow-right-line transition-transform group-hover:translate-x-1" aria-hidden="true" />
       </span>
     </div>
@@ -68,7 +68,7 @@ const Insights = () => {
                 aria-selected={category === c}
                 onClick={() => setCategory(c)}
                 className={`flex-shrink-0 rounded-full px-5 py-2.5 text-[13px] font-semibold transition-all ${
-                  category === c ? 'bg-gold-500 text-ink-900 shadow-gold' : 'border border-line bg-paper text-ink-700 hover:border-gold-300'
+                  category === c ? 'bg-brand-500 text-white shadow-brand' : 'border border-line bg-paper text-navy-700 hover:border-brand-500 hover:text-brand-500'
                 }`}
               >
                 {c}

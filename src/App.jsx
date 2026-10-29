@@ -26,8 +26,8 @@ const loaderSeen = () => {
 
 // Fallback for lazy-loaded routes
 const PageLoader = () => (
-  <div className="flex min-h-screen items-center justify-center bg-ink-900">
-    <span className="h-10 w-10 animate-spin rounded-full border-2 border-gold-400 border-t-transparent" role="status" aria-label="Loading" />
+  <div className="flex min-h-screen items-center justify-center bg-white">
+    <span className="h-10 w-10 animate-spin rounded-full border-2 border-brand-500 border-t-transparent" role="status" aria-label="Loading" />
   </div>
 );
 

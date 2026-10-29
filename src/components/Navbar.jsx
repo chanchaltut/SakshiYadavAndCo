@@ -4,7 +4,7 @@ import Logo from './Logo';
 import { BRAND, NAV_ITEMS, whatsappLink, mapsLink } from '../utils/constants';
 
 // Fixed header: slim utility bar + main navigation.
-// Transparent over the dark page heroes, solid ivory once scrolled.
+// Red utility strip on top; the main bar turns solid white once scrolled.
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -41,30 +41,30 @@ const Navbar = () => {
     <header className="fixed inset-x-0 top-0 z-80">
       {/* ─── Utility bar ─── */}
       <div
-        className={`bg-ink-950 text-ink-200 overflow-hidden transition-[max-height] duration-500 ${
+        className={`bg-brand-500 text-white/90 overflow-hidden transition-[max-height] duration-500 ${
           scrolled ? 'max-h-0' : 'max-h-9'
         }`}
       >
         <div className="container-x flex h-9 items-center justify-between gap-4 text-[11.5px] tracking-wide">
-          <a href={mapsLink} target="_blank" rel="noopener noreferrer" className="hidden md:flex items-center gap-2 hover:text-gold-200 transition-colors">
-            <i className="ri-map-pin-2-line text-gold-400" aria-hidden="true" />
+          <a href={mapsLink} target="_blank" rel="noopener noreferrer" className="hidden md:flex items-center gap-2 hover:text-white transition-colors">
+            <i className="ri-map-pin-2-line text-white" aria-hidden="true" />
             {BRAND.addressText}
           </a>
           <span className="flex md:hidden items-center gap-2">
-            <i className="ri-shield-star-line text-gold-400" aria-hidden="true" />
+            <i className="ri-shield-star-line text-white" aria-hidden="true" />
             ICAI Member Firm · Noida
           </span>
           <div className="flex items-center gap-5">
             <span className="hidden lg:flex items-center gap-2">
-              <i className="ri-time-line text-gold-400" aria-hidden="true" />
+              <i className="ri-time-line text-white" aria-hidden="true" />
               {BRAND.hours}
             </span>
-            <a href={`mailto:${BRAND.email}`} className="hidden sm:flex items-center gap-2 hover:text-gold-200 transition-colors">
-              <i className="ri-mail-line text-gold-400" aria-hidden="true" />
+            <a href={`mailto:${BRAND.email}`} className="hidden sm:flex items-center gap-2 hover:text-white transition-colors">
+              <i className="ri-mail-line text-white" aria-hidden="true" />
               {BRAND.email}
             </a>
-            <a href={`tel:${BRAND.phoneE164}`} className="flex items-center gap-2 font-semibold text-white hover:text-gold-200 transition-colors">
-              <i className="ri-phone-line text-gold-400" aria-hidden="true" />
+            <a href={`tel:${BRAND.phoneE164}`} className="flex items-center gap-2 font-semibold text-white hover:text-white transition-colors">
+              <i className="ri-phone-line text-white" aria-hidden="true" />
               {BRAND.phone}
             </a>
           </div>
@@ -76,13 +76,13 @@ const Navbar = () => {
         aria-label="Main navigation"
         className={`transition-all duration-500 ${
           solid
-            ? 'bg-paper/95 backdrop-blur-md shadow-[0_1px_0_rgba(13,31,58,0.06),0_12px_32px_-24px_rgba(13,31,58,0.35)]'
+            ? 'bg-white/95 backdrop-blur-md shadow-[0_1px_0_rgba(10,19,43,0.06),0_12px_32px_-24px_rgba(10,19,43,0.3)]'
             : 'bg-transparent'
         }`}
       >
         <div className="container-x flex h-[72px] items-center justify-between">
           <Link to="/" aria-label={`${BRAND.name} — Home`} className="relative z-10">
-            <Logo tone={solid ? 'dark' : 'light'} />
+            <Logo />
           </Link>
 
           <div className="hidden lg:flex items-center gap-10">
@@ -91,9 +91,9 @@ const Navbar = () => {
                 <li key={item.name}>
                   <Link
                     to={item.href}
-                    className={`relative py-2 text-[13.5px] font-semibold tracking-wide transition-colors duration-300 after:absolute after:inset-x-0 after:-bottom-0.5 after:h-px after:origin-left after:bg-gold-500 after:transition-transform after:duration-300 ${
+                    className={`relative py-2 text-[13.5px] font-semibold tracking-wide transition-colors duration-300 after:absolute after:inset-x-0 after:-bottom-0.5 after:origin-left after:h-0.5 after:rounded-full after:bg-brand-500 after:transition-transform after:duration-300 ${
                       isActive(item.href) ? 'after:scale-x-100' : 'after:scale-x-0 hover:after:scale-x-100'
-                    } ${solid ? 'text-ink-800 hover:text-gold-700' : 'text-white/90 hover:text-white'}`}
+                    } ${isActive(item.href) ? 'text-brand-500' : 'text-navy-800 hover:text-brand-500'}`}
                   >
                     {item.name}
                   </Link>
@@ -104,7 +104,7 @@ const Navbar = () => {
               href={whatsappLink(`Hello, I would like to schedule a consultation with ${BRAND.name}.`)}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${solid ? 'btn-primary' : 'btn-gold'} !py-2.5 !min-h-[44px]`}
+              className="btn-primary btn-shimmer !py-2.5 !min-h-[44px]"
             >
               Book a Consultation
             </a>
@@ -113,7 +113,7 @@ const Navbar = () => {
           <button
             type="button"
             className={`lg:hidden relative z-10 flex h-11 w-11 items-center justify-center rounded-full border transition-colors ${
-              solid ? 'border-line text-ink-800' : 'border-white/25 text-white'
+              solid ? 'border-line bg-white text-navy-800' : 'border-brand-200 bg-white/80 text-brand-500'
             }`}
             onClick={() => setOpen((o) => !o)}
             aria-label={open ? 'Close menu' : 'Open menu'}
@@ -128,7 +128,7 @@ const Navbar = () => {
       {/* ─── Mobile menu ─── */}
       <div
         id="mobile-menu"
-        className={`lg:hidden fixed inset-x-0 bottom-0 bg-paper transition-all duration-500 ${
+        className={`lg:hidden fixed inset-x-0 bottom-0 bg-white transition-all duration-500 ${
           open ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-3'
         }`}
         style={{ top: scrolled ? 72 : 108 }}
@@ -139,12 +139,12 @@ const Navbar = () => {
               <li key={item.name}>
                 <Link
                   to={item.href}
-                  className={`flex items-center justify-between py-4 font-serif text-[28px] font-semibold ${
-                    isActive(item.href) ? 'text-gold-700' : 'text-ink-800'
+                  className={`flex items-center justify-between py-4 font-display text-[22px] font-bold tracking-[-0.02em] ${
+                    isActive(item.href) ? 'text-brand-500' : 'text-navy-800'
                   }`}
                 >
                   {item.name}
-                  <i className="ri-arrow-right-up-line text-lg text-gold-500" aria-hidden="true" />
+                  <i className="ri-arrow-right-up-line text-lg text-brand-500" aria-hidden="true" />
                 </Link>
               </li>
             ))}
@@ -160,7 +160,7 @@ const Navbar = () => {
           </div>
 
           <div className="mt-auto pt-10 text-sm text-muted space-y-1.5">
-            <p className="font-semibold text-ink-800">{BRAND.legalName}</p>
+            <p className="font-semibold text-navy-800">{BRAND.legalName}</p>
             <p>{BRAND.addressText}</p>
             <p>{BRAND.hours}</p>
           </div>

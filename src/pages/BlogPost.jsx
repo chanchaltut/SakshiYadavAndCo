@@ -25,7 +25,7 @@ const BlogPost = () => {
         eyebrow={article.category}
         title={article.title}
       >
-        <p className="mt-8 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-ink-300">
+        <p className="mt-8 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm font-medium text-muted">
           <span>By {BRAND.name}</span>
           <span aria-hidden="true">·</span>
           <time dateTime={article.isoDate}>{article.date}</time>
@@ -42,12 +42,12 @@ const BlogPost = () => {
             className="mx-auto aspect-[21/9] w-full max-w-5xl rounded-[26px] object-cover shadow-lift"
           />
           <div className="mx-auto mt-14 max-w-[720px]">
-            <p className="font-serif text-2xl leading-snug text-ink-700 sm:text-[1.7rem]">{article.excerpt}</p>
-            <div className="gold-rule my-10" aria-hidden="true" />
+            <p className="font-display text-2xl leading-snug text-navy-700 sm:text-[1.7rem]">{article.excerpt}</p>
+            <div className="brand-rule my-10" aria-hidden="true" />
             <ArticleBody content={article.content} />
 
             <aside className="mt-14 rounded-2xl border border-line bg-paper p-7 shadow-soft">
-              <p className="font-serif text-2xl font-semibold text-ink-800">Need advice on your specific situation?</p>
+              <p className="font-display text-2xl font-bold text-navy-800">Need advice on your specific situation?</p>
               <p className="mt-2 text-[14.5px] text-muted">
                 This article is general information, not professional advice. Speak with {BRAND.name} before acting on it.
               </p>
@@ -62,9 +62,9 @@ const BlogPost = () => {
             <ul className="mt-5 grid gap-4 sm:grid-cols-3">
               {more.map((a) => (
                 <li key={a.slug}>
-                  <Link to={`/blog/${a.slug}`} className="group flex h-full flex-col rounded-2xl border border-line bg-paper p-6 transition-all hover:-translate-y-1 hover:border-gold-300 hover:shadow-lift">
-                    <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-gold-700">{a.category}</span>
-                    <span className="mt-3 font-serif text-xl font-semibold leading-snug text-ink-800 group-hover:text-gold-700">{a.title}</span>
+                  <Link to={`/blog/${a.slug}`} className="group flex h-full flex-col rounded-2xl border border-line bg-paper p-6 transition-all hover:-translate-y-1 hover:border-brand-300 hover:shadow-lift">
+                    <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-brand-500">{a.category}</span>
+                    <span className="mt-3 font-display text-xl font-bold leading-snug text-navy-800 group-hover:text-brand-500">{a.title}</span>
                   </Link>
                 </li>
               ))}

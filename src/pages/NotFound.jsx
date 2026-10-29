@@ -13,8 +13,8 @@ const NotFound = () => (
       lede="The link may be outdated or mistyped. You can return to the home page or explore our practice areas."
     >
       <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-        <Link to="/" className="btn-gold">Return Home</Link>
-        <Link to="/#services" className="btn-outline-light">View Practice Areas</Link>
+        <Link to="/" className="btn-primary">Return Home</Link>
+        <Link to="/#services" className="btn-outline">View Practice Areas</Link>
       </div>
     </PageHeader>
   </>

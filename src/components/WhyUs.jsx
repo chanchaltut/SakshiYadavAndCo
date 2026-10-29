@@ -7,9 +7,8 @@ const WhyUs = () => {
   const ref = useReveal();
 
   return (
-    <section ref={ref} className="section relative overflow-hidden bg-ink-800 text-white" aria-label={`Why clients choose ${BRAND.name}`}>
-      <div className="absolute inset-0 grid-lines opacity-50" aria-hidden="true" />
-      <div className="absolute -right-40 top-10 h-[480px] w-[480px] rounded-full bg-gold-500/10 blur-[120px]" aria-hidden="true" />
+    <section ref={ref} className="section relative overflow-hidden bg-ivory" aria-label={`Why clients choose ${BRAND.name}`}>
+      <div className="absolute inset-0 dot-bg opacity-70" aria-hidden="true" />
 
       <div className="container-x relative grid gap-16 lg:grid-cols-12">
         <div className="lg:col-span-4">
@@ -18,17 +17,18 @@ const WhyUs = () => {
             title="The rigour of a CA firm,"
             accent="the attention of a partner."
             lede="Clients stay with us because the work is careful, the communication is direct, and nothing is left to the last day."
-            tone="light"
             className="reveal lg:sticky lg:top-40"
           />
         </div>
 
-        <ul className="grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 sm:grid-cols-2 lg:col-span-8">
+        <ul className="grid gap-5 sm:grid-cols-2 lg:col-span-8">
           {WHY_CHOOSE_US.map((item, i) => (
-            <li key={item.title} className="reveal bg-ink-800 p-7 transition-colors duration-500 hover:bg-ink-700 sm:p-8" style={{ transitionDelay: `${(i % 2) * 80}ms` }}>
-              <i className={`${item.icon} text-[28px] text-gold-400`} aria-hidden="true" />
-              <h3 className="mt-5 font-serif text-2xl font-semibold text-white">{item.title}</h3>
-              <p className="mt-3 text-[14px] leading-relaxed text-ink-200">{item.desc}</p>
+            <li key={item.title} className="reveal group card card-hover p-7 sm:p-8" style={{ transitionDelay: `${(i % 2) * 80}ms` }}>
+              <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-50 text-brand-500 transition-colors duration-300 group-hover:bg-brand-500 group-hover:text-white">
+                <i className={`${item.icon} text-2xl`} aria-hidden="true" />
+              </span>
+              <h3 className="mt-5 font-display text-xl font-bold text-navy-800">{item.title}</h3>
+              <p className="mt-3 text-[14px] leading-relaxed text-muted">{item.desc}</p>
             </li>
           ))}
         </ul>

@@ -29,8 +29,8 @@ icon.save("public/logo.png", optimize=True)
 icon.save("public/favicon-512.png", optimize=True)
 for size, name in [(192, "favicon-192.png"), (180, "apple-touch-icon.png"), (32, "favicon-32.png")]:
     icon.resize((size, size), Image.LANCZOS).save(f"public/{name}", optimize=True)
-# iOS ignores transparency on touch icons — flatten onto the brand ink
-touch = Image.new("RGBA", (180, 180), (13, 31, 58, 255))
+# iOS ignores transparency on touch icons — flatten onto the brand red
+touch = Image.new("RGBA", (180, 180), (192, 21, 48, 255))
 touch.alpha_composite(icon.resize((180, 180), Image.LANCZOS))
 touch.convert("RGB").save("public/apple-touch-icon.png", optimize=True)
 icon.resize((48, 48), Image.LANCZOS).save("public/favicon.ico", sizes=[(16, 16), (32, 32), (48, 48)])

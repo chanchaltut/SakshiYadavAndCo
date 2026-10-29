@@ -6,11 +6,11 @@ import { BRAND, SERVICE_CATEGORIES, whatsappLink, mapsLink } from '../utils/cons
 const EMPTY = { name: '', email: '', phone: '', service: '', message: '' };
 
 const inputClass =
-  'w-full rounded-xl border border-line bg-paper px-4 py-3.5 text-[15px] text-ink-800 outline-none transition placeholder:text-ink-300 focus:border-gold-500 focus:ring-4 focus:ring-gold-100';
+  'w-full rounded-xl border border-line bg-paper px-4 py-3.5 text-[15px] text-navy-800 outline-none transition placeholder:text-navy-300 focus:border-brand-500 focus:ring-4 focus:ring-brand-100';
 
 const Field = ({ label, id, children }) => (
   <div>
-    <label htmlFor={id} className="mb-2 block text-[12px] font-bold uppercase tracking-[0.14em] text-ink-600">{label}</label>
+    <label htmlFor={id} className="mb-2 block text-[12px] font-bold uppercase tracking-[0.14em] text-navy-600">{label}</label>
     {children}
   </div>
 );
@@ -69,29 +69,31 @@ const Contact = () => {
       <section className="relative z-10 -mt-14 pb-20 sm:-mt-16 sm:pb-24">
         <div className="container-x grid gap-6 lg:grid-cols-12">
           {/* Office card */}
-          <aside className="rounded-[26px] bg-ink-800 p-7 text-white shadow-lift sm:p-9 lg:col-span-5">
+          <aside className="red-gradient relative overflow-hidden rounded-[26px] p-7 text-white shadow-brand sm:p-9 lg:col-span-5">
+            <div className="absolute inset-0 dot-bg-light" aria-hidden="true" />
+            <div className="relative">
             <p className="eyebrow eyebrow-light">Our office</p>
             <address className="mt-6 not-italic">
-              <p className="font-serif text-[1.9rem] font-semibold leading-tight">{BRAND.legalName}</p>
-              <p className="mt-4 text-[15px] leading-relaxed text-ink-200">
+              <p className="font-display text-[1.9rem] font-bold leading-tight">{BRAND.legalName}</p>
+              <p className="mt-4 text-[15px] leading-relaxed text-white/85">
                 {BRAND.address.line1}, {BRAND.address.line2},<br />
                 {BRAND.address.city}, {BRAND.address.state} {BRAND.address.pincode}
               </p>
-              <a href={mapsLink} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-gold-300 hover:text-gold-200">
+              <a href={mapsLink} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-white underline decoration-white/40 underline-offset-4 hover:decoration-white">
                 Get directions <i className="ri-arrow-right-up-line" aria-hidden="true" />
               </a>
             </address>
 
-            <ul className="mt-8 divide-y divide-white/10 border-t border-white/10">
+            <ul className="mt-8 divide-y divide-white/15 border-t border-white/15">
               {channels.map((c) => (
                 <li key={c.label} className="flex items-center gap-4 py-4">
-                  <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-gold-500/40 text-gold-300">
+                  <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-white text-brand-500">
                     <i className={c.icon} aria-hidden="true" />
                   </span>
                   <span className="min-w-0">
-                    <span className="block text-[11px] font-bold uppercase tracking-[0.2em] text-ink-300">{c.label}</span>
+                    <span className="block text-[11px] font-bold uppercase tracking-[0.2em] text-white/70">{c.label}</span>
                     {c.href ? (
-                      <a href={c.href} {...(c.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})} className="block break-all text-[15px] font-semibold text-white hover:text-gold-200">
+                      <a href={c.href} {...(c.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})} className="block break-all text-[15px] font-semibold text-white hover:underline">
                         {c.value}
                       </a>
                     ) : (
@@ -101,11 +103,12 @@ const Contact = () => {
                 </li>
               ))}
             </ul>
+            </div>
           </aside>
 
           {/* Form */}
           <div className="rounded-[26px] border border-line bg-paper p-7 shadow-lift sm:p-10 lg:col-span-7">
-            <h2 className="font-serif text-3xl font-semibold text-ink-800 sm:text-4xl">Send an enquiry</h2>
+            <h2 className="font-display text-3xl font-bold text-navy-800 sm:text-4xl">Send an enquiry</h2>
             <p className="mt-2 text-sm text-muted">We respond within one working day. Please do not share sensitive financial documents through this form.</p>
 
             {status === 'success' && (
@@ -147,7 +150,7 @@ const Contact = () => {
                 </Field>
               </div>
               <div className="sm:col-span-2 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                <p className="text-[12px] text-muted">By submitting, you agree to our <a href="/privacy-policy" className="underline underline-offset-2 hover:text-ink-800">Privacy Policy</a>.</p>
+                <p className="text-[12px] text-muted">By submitting, you agree to our <a href="/privacy-policy" className="underline underline-offset-2 hover:text-navy-800">Privacy Policy</a>.</p>
                 <button type="submit" disabled={status === 'submitting'} className="btn-primary disabled:opacity-60">
                   {status === 'submitting' ? (
                     <><span className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" aria-hidden="true" /> Sending…</>

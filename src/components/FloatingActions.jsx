@@ -16,7 +16,7 @@ const FloatingActions = () => {
       <button
         type="button"
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        className={`flex h-11 w-11 items-center justify-center rounded-full border border-line bg-paper text-ink-700 shadow-soft transition-all duration-300 hover:border-gold-400 hover:text-gold-700 ${
+        className={`flex h-11 w-11 items-center justify-center rounded-full border border-line bg-paper text-navy-700 shadow-soft transition-all duration-300 hover:border-brand-500 hover:bg-brand-500 hover:text-white ${
           showTop ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-3 opacity-0'
         }`}
         aria-label="Back to top"
@@ -27,7 +27,7 @@ const FloatingActions = () => {
 
       <a
         href={`tel:${BRAND.phoneE164}`}
-        className="flex h-12 w-12 items-center justify-center rounded-full bg-ink-800 text-gold-200 shadow-lift transition-transform hover:-translate-y-0.5 sm:hidden"
+        className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-500 text-white shadow-brand pulse-red transition-transform hover:-translate-y-0.5 sm:hidden"
         aria-label={`Call ${BRAND.phone}`}
       >
         <i className="ri-phone-fill text-xl" aria-hidden="true" />
