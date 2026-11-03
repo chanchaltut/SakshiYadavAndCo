@@ -74,11 +74,7 @@ const Navbar = () => {
       {/* ─── Main nav ─── */}
       <nav
         aria-label="Main navigation"
-        className={`transition-all duration-500 ${
-          solid
-            ? 'bg-white/95 backdrop-blur-md shadow-[0_1px_0_rgba(10,19,43,0.06),0_12px_32px_-24px_rgba(10,19,43,0.3)]'
-            : 'bg-transparent'
-        }`}
+        className="border-b border-line bg-white"
       >
         <div className="container-x flex h-[72px] items-center justify-between">
           <Link to="/" aria-label={`${BRAND.name} — Home`} className="relative z-10">
@@ -113,7 +109,7 @@ const Navbar = () => {
           <button
             type="button"
             className={`lg:hidden relative z-10 flex h-11 w-11 items-center justify-center rounded-full border transition-colors ${
-              solid ? 'border-line bg-white text-navy-800' : 'border-brand-200 bg-white/80 text-brand-500'
+              solid ? 'border-line bg-white text-navy-800' : 'border-brand-200 bg-white text-brand-500'
             }`}
             onClick={() => setOpen((o) => !o)}
             aria-label={open ? 'Close menu' : 'Open menu'}

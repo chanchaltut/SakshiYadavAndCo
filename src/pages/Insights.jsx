@@ -9,7 +9,7 @@ import useReveal from '../hooks/useReveal';
 const ArticleCard = ({ article, featured = false }) => (
   <Link
     to={`/blog/${article.slug}`}
-    className={`group flex h-full overflow-hidden rounded-[22px] border border-line bg-paper shadow-soft transition-all duration-500 hover:-translate-y-1 hover:border-brand-300 hover:shadow-lift ${
+    className={`group flex h-full overflow-hidden rounded-[22px] border border-line bg-paper transition-all duration-500 hover:-translate-y-1 hover:border-brand-300 ${
       featured ? 'flex-col lg:flex-row' : 'flex-col'
     }`}
   >
@@ -68,7 +68,7 @@ const Insights = () => {
                 aria-selected={category === c}
                 onClick={() => setCategory(c)}
                 className={`flex-shrink-0 rounded-full px-5 py-2.5 text-[13px] font-semibold transition-all ${
-                  category === c ? 'bg-brand-500 text-white shadow-brand' : 'border border-line bg-paper text-navy-700 hover:border-brand-500 hover:text-brand-500'
+                  category === c ? 'bg-brand-500 text-white' : 'border border-line bg-paper text-navy-700 hover:border-brand-500 hover:text-brand-500'
                 }`}
               >
                 {c}

@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useState } from 'react';
+import React, { lazy, Suspense, useEffect, useState } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -24,6 +24,16 @@ const loaderSeen = () => {
   try { return sessionStorage.getItem(LOADER_KEY) === '1'; } catch { return true; }
 };
 
+// Removes the static splash from index.html once React has painted.
+// With the intro loader showing underneath (identical first frame) it can go instantly; otherwise fade it.
+const removeBootSplash = (fade) => {
+  const boot = document.getElementById('boot');
+  const release = () => { boot?.remove(); document.documentElement.classList.remove('booting'); };
+  if (!boot || !fade) return release();
+  boot.classList.add('boot-out');
+  setTimeout(release, 380);
+};
+
 // Fallback for lazy-loaded routes
 const PageLoader = () => (
   <div className="flex min-h-screen items-center justify-center bg-white">
@@ -33,6 +43,9 @@ const PageLoader = () => (
 
 function App() {
   const [showLoader, setShowLoader] = useState(() => !loaderSeen());
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => { removeBootSplash(!showLoader); }, []);
 
   const handleLoaderDone = () => {
     setShowLoader(false);

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-IN">
+<html lang="en-IN" class="booting">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -26,12 +26,16 @@
     <meta name="ICBM" content="28.5696, 77.3236" />
 
     <!-- Icons & manifest -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/manifest.json" />
 
     <!-- Performance -->
+    <link rel="preload" as="image" href="/logo-full.webp" type="image/webp" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
@@ -40,9 +44,26 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" media="print" onload="this.media='all'" />
     <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" /></noscript>
+    <!-- Boot splash: painted instantly so the pre-rendered SEO text never flashes before the app loads.
+         Mirrors the first frame of the React loader (src/components/LogoLoader.jsx), which takes over seamlessly. -->
+    <style>
+      html.booting, html.booting body { overflow: hidden; }
+      #boot { position: fixed; inset: 0; z-index: 2147483000; display: flex; align-items: center; justify-content: center; background: #fff; transition: opacity .35s ease; }
+      #boot.boot-out { opacity: 0; pointer-events: none; }
+      #boot .bl { display: block; height: 70px; width: auto; opacity: .12; filter: grayscale(1); }
+      #boot .bb { position: absolute; bottom: 48px; left: 50%; width: 160px; height: 2px; margin-left: -80px; border-radius: 2px; background: #FBE3E7; }
+      @media (max-width: 639px) { #boot .bl { height: 48px; } }
+    </style>
+    <noscript><style>#boot { display: none; } html.booting, html.booting body { overflow: auto; }</style></noscript>
   </head>
 
   <body>
+    <div id="boot" aria-hidden="true">
+      <img class="bl" src="/logo-full.webp" alt="" width="440" height="70" />
+      <div class="bb"></div>
+    </div>
+    <!-- Safety net: never leave the splash up if the app fails to start -->
+    <script>setTimeout(function(){var b=document.getElementById('boot');if(b){b.remove();document.documentElement.classList.remove('booting');}},10000)</script>
     <div id="root"><!--seo:body--></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

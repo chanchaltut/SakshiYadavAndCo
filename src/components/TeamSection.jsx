@@ -15,12 +15,11 @@ const Portrait = () =>
       className="aspect-[4/5] w-full object-cover object-top"
     />
   ) : (
-    <div className="relative flex aspect-[4/5] w-full flex-col items-center justify-center overflow-hidden red-gradient">
-      <div className="absolute inset-0 dot-bg-light" aria-hidden="true" />
-      <div className="absolute inset-6 rounded-[18px] border border-white/30" aria-hidden="true" />
-      <span className="relative font-display text-[7.5rem] font-bold leading-none tracking-[-0.04em] text-white sm:text-[9rem]">SY</span>
-      <span className="relative mt-4 h-px w-16 bg-white/60" aria-hidden="true" />
-      <span className="relative mt-4 text-[11px] font-bold uppercase tracking-[0.3em] text-white/85">Chartered Accountant</span>
+    <div className="relative flex aspect-[4/5] w-full flex-col items-center justify-center overflow-hidden bg-ivory">
+      <div className="absolute inset-6 rounded-[18px] border border-line" aria-hidden="true" />
+      <img src="/sy-mark.webp" alt="" width="256" height="256" loading="lazy" className="relative h-40 w-40 object-contain sm:h-52 sm:w-52" />
+      <span className="relative mt-6 h-px w-16 bg-brand-200" aria-hidden="true" />
+      <span className="relative mt-4 text-[11px] font-bold uppercase tracking-[0.3em] text-brand-600">Chartered Accountant</span>
     </div>
   );
 
@@ -31,7 +30,7 @@ const TeamSection = () => {
     <section ref={ref} className="section bg-white" aria-labelledby="founder-heading">
       <div className="container-x grid items-center gap-14 lg:grid-cols-12 lg:gap-20">
         <div className="reveal mx-auto w-full max-w-md lg:col-span-5 lg:max-w-none">
-          <div className="overflow-hidden rounded-[26px] shadow-lift">
+          <div className="overflow-hidden rounded-[26px] border border-line">
             <Portrait />
           </div>
         </div>

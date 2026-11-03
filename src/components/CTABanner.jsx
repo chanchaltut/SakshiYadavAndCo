@@ -2,7 +2,7 @@ import React from 'react';
 import { BRAND, whatsappLink } from '../utils/constants';
 
 const CTABanner = () => (
-  <section className="bg-white pb-20 sm:pb-24" aria-label="Contact the firm">
+  <section className="pb-20 sm:pb-24" aria-label="Contact the firm">
     <div className="container-x">
       <div className="red-gradient relative overflow-hidden rounded-[28px] px-6 py-16 text-center sm:px-12 sm:py-20">
         <div className="absolute inset-0 dot-bg-light" aria-hidden="true" />

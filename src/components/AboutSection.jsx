@@ -11,7 +11,7 @@ const AboutSection = ({ showLink = true }) => {
       <div className="container-x grid items-center gap-14 lg:grid-cols-12 lg:gap-16">
         {/* Image composition */}
         <div className="reveal relative lg:col-span-5">
-          <div className="relative overflow-hidden rounded-[26px] shadow-lift">
+          <div className="relative overflow-hidden rounded-[26px]">
             <img
               src={ABOUT.image}
               alt="Chartered Accountant reviewing and signing financial documents"
@@ -21,7 +21,7 @@ const AboutSection = ({ showLink = true }) => {
               className="aspect-[4/5] w-full object-cover"
             />
           </div>
-          <div className="absolute -bottom-8 -right-4 hidden max-w-[260px] rounded-2xl red-gradient p-6 text-white shadow-brand sm:block lg:-right-10">
+          <div className="absolute -bottom-8 -right-4 hidden max-w-[260px] rounded-2xl red-gradient p-6 text-white sm:block lg:-right-10">
             <i className="ri-double-quotes-l text-3xl text-white/70" aria-hidden="true" />
             <p className="mt-2 font-display text-lg font-semibold leading-snug">
               Precise work, honest advice and deadlines that are never an afterthought.

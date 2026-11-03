@@ -69,7 +69,7 @@ const Contact = () => {
       <section className="relative z-10 -mt-14 pb-20 sm:-mt-16 sm:pb-24">
         <div className="container-x grid gap-6 lg:grid-cols-12">
           {/* Office card */}
-          <aside className="red-gradient relative overflow-hidden rounded-[26px] p-7 text-white shadow-brand sm:p-9 lg:col-span-5">
+          <aside className="red-gradient relative overflow-hidden rounded-[26px] p-7 text-white sm:p-9 lg:col-span-5">
             <div className="absolute inset-0 dot-bg-light" aria-hidden="true" />
             <div className="relative">
             <p className="eyebrow eyebrow-light">Our office</p>
@@ -107,7 +107,7 @@ const Contact = () => {
           </aside>
 
           {/* Form */}
-          <div className="rounded-[26px] border border-line bg-paper p-7 shadow-lift sm:p-10 lg:col-span-7">
+          <div className="rounded-[26px] border border-line bg-paper p-7 sm:p-10 lg:col-span-7">
             <h2 className="font-display text-3xl font-bold text-navy-800 sm:text-4xl">Send an enquiry</h2>
             <p className="mt-2 text-sm text-muted">We respond within one working day. Please do not share sensitive financial documents through this form.</p>
 
@@ -165,7 +165,7 @@ const Contact = () => {
 
         {/* Map */}
         <div className="container-x mt-6">
-          <div className="overflow-hidden rounded-[26px] border border-line shadow-soft">
+          <div className="overflow-hidden rounded-[26px] border border-line">
             <iframe
               title={`Map — ${BRAND.name}, ${BRAND.addressText}`}
               src={`https://www.google.com/maps?q=${encodeURIComponent(BRAND.mapsQuery)}&output=embed`}

@@ -11,6 +11,19 @@ export const SITE_URL = BRAND.website
 export const OG_IMAGE = `${SITE_URL}/og-image.jpg`
 export const OG_IMAGE_ALT = `${BRAND.name} — Chartered Accountants, Sector 18, Noida`
 export const TWITTER_IMAGE = `${SITE_URL}/twitter-card.jpg`
+export const LOGO_IMAGE = `${SITE_URL}/logo.png`
+export const LOGO_LOCKUP = `${SITE_URL}/logo-full.png`
+
+// Every way people search for or write the firm's name — used in schema.org alternateName
+export const BRAND_ALIASES = [
+  'Sakshi Yadav and Co',
+  'Sakshi Yadav and Co.',
+  'Sakshi Yadav & Co',
+  'SY & Co.',
+  'Sakshi Yadav & Co Chartered Accountants',
+  'Sakshi Yadav and Co Chartered Accountants',
+  'SYC Chartered Accountants',
+]
 
 export const absolute = (path) => (path === '/' ? `${SITE_URL}/` : `${SITE_URL}${path}`)
 
@@ -30,12 +43,20 @@ export const siteGraph = () => ({
       '@id': ORG_ID,
       name: BRAND.name,
       legalName: BRAND.legalName,
-      alternateName: ['Sakshi Yadav and Co', 'Sakshi Yadav & Co Chartered Accountants', 'SYC Chartered Accountants'],
+      alternateName: BRAND_ALIASES,
       description: BRAND.description,
       slogan: BRAND.tagline,
       url: `${SITE_URL}/`,
-      logo: { '@type': 'ImageObject', url: `${SITE_URL}/logo.png`, width: 512, height: 512 },
-      image: OG_IMAGE,
+      logo: {
+        '@type': 'ImageObject',
+        '@id': `${SITE_URL}/#logo`,
+        url: LOGO_IMAGE,
+        contentUrl: LOGO_IMAGE,
+        width: 512,
+        height: 512,
+        caption: BRAND.name,
+      },
+      image: [OG_IMAGE, LOGO_LOCKUP, LOGO_IMAGE],
       telephone: BRAND.phoneE164,
       email: BRAND.email,
       priceRange: '₹₹',
@@ -119,7 +140,7 @@ export const siteGraph = () => ({
       '@id': WEBSITE_ID,
       url: `${SITE_URL}/`,
       name: BRAND.name,
-      alternateName: 'Sakshi Yadav and Co',
+      alternateName: BRAND_ALIASES.slice(0, 4),
       publisher: { '@id': ORG_ID },
       inLanguage: 'en-IN',
     },
@@ -161,7 +182,7 @@ const webPage = (type, path, title, description) => ({
 })
 
 // ─── Route definitions ───────────────────────────────────────
-const KEYWORDS_BASE = 'Chartered Accountant in Noida, CA firm Noida, CA in Sector 18 Noida, Sakshi Yadav & Co, CA Sakshi Yadav, Chartered Accountants Delhi NCR'
+const KEYWORDS_BASE = 'Sakshi Yadav & Co, Sakshi Yadav and Co, CA Sakshi Yadav, Sakshi Yadav CA Noida, Chartered Accountant in Noida, CA firm Noida, CA in Sector 18 Noida, Chartered Accountants Delhi NCR'
 
 const staticRoutes = {
   '/': {
@@ -170,7 +191,14 @@ const staticRoutes = {
     keywords: `${KEYWORDS_BASE}, income tax return filing Noida, GST registration Noida, tax audit Noida, company registration Noida, ROC compliance, TDS return filing`,
     changefreq: 'weekly',
     priority: '1.0',
-    jsonLd: () => [webPage('WebPage', '/', staticRoutes['/'].title, staticRoutes['/'].description), faqSchema(FAQS)],
+    jsonLd: () => [
+      {
+        ...webPage('WebPage', '/', staticRoutes['/'].title, staticRoutes['/'].description),
+        mainEntity: { '@id': ORG_ID },
+        primaryImageOfPage: { '@type': 'ImageObject', url: OG_IMAGE, width: 1200, height: 630 },
+      },
+      faqSchema(FAQS),
+    ],
   },
   '/about': {
     title: `About ${BRAND.name} | CA Sakshi Yadav — Chartered Accountant, Noida`,
@@ -346,6 +374,7 @@ export function headTags(meta) {
     meta.image === OG_IMAGE && { tag: 'meta', attrs: { property: 'og:image:type', content: 'image/jpeg' } },
     meta.image === OG_IMAGE && { tag: 'meta', attrs: { property: 'og:image:width', content: '1200' } },
     meta.image === OG_IMAGE && { tag: 'meta', attrs: { property: 'og:image:height', content: '630' } },
+    meta.image === OG_IMAGE && { tag: 'link', attrs: { rel: 'image_src', href: OG_IMAGE } },
     { tag: 'meta', attrs: { property: 'og:image:alt', content: meta.imageAlt } },
     { tag: 'meta', attrs: { name: 'twitter:card', content: 'summary_large_image' } },
     { tag: 'meta', attrs: { name: 'twitter:title', content: meta.title } },

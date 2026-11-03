@@ -50,7 +50,7 @@ const DisclaimerModal = () => {
       <div className="absolute inset-0 bg-navy-950/75 backdrop-blur-sm" aria-hidden="true" />
 
       <div
-        className={`relative flex max-h-[88vh] w-full max-w-xl flex-col overflow-hidden rounded-t-[26px] bg-paper shadow-lift transition-transform duration-300 sm:rounded-[26px] ${
+        className={`relative flex max-h-[88vh] w-full max-w-xl flex-col overflow-hidden rounded-t-[26px] bg-paper transition-transform duration-300 sm:rounded-[26px] ${
           visible ? 'translate-y-0' : 'translate-y-6'
         }`}
       >

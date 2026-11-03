@@ -5,7 +5,8 @@ import PageHeader from '../../components/PageHeader';
 import FAQSection from '../../components/FAQSection';
 import CTABanner from '../../components/CTABanner';
 import NotFound from '../NotFound';
-import { SERVICES, SERVICE_FAQS, BRAND, SITE_FLAGS, whatsappLink } from '../../utils/constants';
+import { FaWhatsapp } from 'react-icons/fa';
+import { SERVICES, SERVICE_FAQS, BRAND, SITE_FLAGS, whatsappLink, serviceEnquiry } from '../../utils/constants';
 import useReveal from '../../hooks/useReveal';
 
 const ServicePage = () => {
@@ -45,7 +46,7 @@ const ServicePage = () => {
 
       <section ref={ref} className="relative z-10 -mt-14 pb-20 sm:-mt-16 sm:pb-24">
         <div className="container-x">
-          <dl className="grid grid-cols-2 overflow-hidden rounded-2xl border border-line bg-paper shadow-lift lg:grid-cols-3">
+          <dl className="grid grid-cols-2 overflow-hidden rounded-2xl border border-line bg-paper lg:grid-cols-3">
             {facts.slice(0, 3).map((f, i) => (
               <div key={f.label} className={`p-5 sm:p-7 ${i > 0 ? 'border-l border-line' : ''} ${i === 2 ? 'col-span-2 border-l-0 border-t lg:col-span-1 lg:border-l lg:border-t-0' : ''}`}>
                 <dt className="text-[11px] font-bold uppercase tracking-[0.2em] text-muted">{f.label}</dt>
@@ -59,7 +60,7 @@ const ServicePage = () => {
               <p className="eyebrow reveal">Scope of work</p>
               <h2 className="h-section mt-5 reveal">What this engagement <span className="text-brand-500">covers.</span></h2>
               <p className="lede mt-5 reveal">
-                Each assignment is prepared by our team and reviewed by a Chartered Accountant before anything is filed or issued.
+                Each assignment is prepared by our team and reviewed by a Chartered Accountant before anything is filed or issued. Tap “Enquire” on any item — WhatsApp opens with that exact service pre-filled.
               </p>
               {SITE_FLAGS.showPricing && (
                 <p className="mt-6 text-sm font-semibold text-brand-500 reveal">Professional fees start from {service.startingPrice}. Government fees at actuals.</p>
@@ -67,9 +68,20 @@ const ServicePage = () => {
             </div>
             <ul className="grid gap-3 sm:grid-cols-2 lg:col-span-7">
               {service.services.map((item, i) => (
-                <li key={item} className="reveal flex items-start gap-4 rounded-2xl border border-line bg-paper p-5 shadow-soft" style={{ transitionDelay: `${(i % 2) * 70}ms` }}>
-                  <span className="font-display text-lg text-brand-500">{String(i + 1).padStart(2, '0')}</span>
-                  <span className="text-[15px] font-medium leading-snug text-navy-800">{item}</span>
+                <li key={item} className="reveal group flex flex-col gap-4 rounded-2xl border border-line bg-paper p-5 transition-all hover:-translate-y-0.5 hover:border-brand-300" style={{ transitionDelay: `${(i % 2) * 70}ms` }}>
+                  <div className="flex items-start gap-4">
+                    <span className="font-display text-lg font-bold text-brand-500">{String(i + 1).padStart(2, '0')}</span>
+                    <span className="text-[15px] font-medium leading-snug text-navy-800">{item}</span>
+                  </div>
+                  <a
+                    href={whatsappLink(serviceEnquiry(item, service.title))}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Enquire about ${item} on WhatsApp`}
+                    className="mt-auto inline-flex items-center gap-1.5 self-start rounded-full border border-line bg-ivory px-4 py-2 text-[12.5px] font-bold text-navy-800 transition-colors hover:border-navy-300 hover:bg-white"
+                  >
+                    <FaWhatsapp className="text-[15px]" aria-hidden="true" /> Enquire
+                  </a>
                 </li>
               ))}
             </ul>
@@ -81,7 +93,7 @@ const ServicePage = () => {
               <ul className="mt-5 grid gap-4 sm:grid-cols-3">
                 {related.map((r) => (
                   <li key={r.slug}>
-                    <Link to={`/services/${r.slug}`} className="group flex h-full flex-col rounded-2xl border border-line bg-paper p-6 transition-all hover:-translate-y-1 hover:border-brand-300 hover:shadow-lift">
+                    <Link to={`/services/${r.slug}`} className="group flex h-full flex-col rounded-2xl border border-line bg-paper p-6 transition-all hover:-translate-y-1 hover:border-brand-300">
                       <span className="font-display text-xl font-bold text-navy-800">{r.title}</span>
                       <span className="mt-2 text-sm text-muted">{r.shortDesc}</span>
                       <span className="mt-auto pt-4 text-sm font-semibold text-brand-500">Learn more <i className="ri-arrow-right-line transition-transform group-hover:translate-x-1" aria-hidden="true" /></span>

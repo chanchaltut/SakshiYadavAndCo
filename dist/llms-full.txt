@@ -79,15 +79,13 @@ PF & ESIC registration, monthly challan, returns & employee compliance managemen
 - ESIC IP Number & Card Assistance
 
 ### Trade Mark
-Trademark registration, objection reply, copyright & design protection — protect your brand.
+Trademark search, registration, objection reply, renewal & design protection — protect your brand.
 - Trademark Registration (1 Class)
 - Trademark Search & Availability Report
 - Trademark Objection Reply
 - Trademark Renewal
 - Trademark Assignment / Transfer
-- Copyright Registration
 - Design Registration
-- Geographical Indication (GI Tag)
 - Logo / Brand Protection Advisory
 
 ### Incorporation & Registration
@@ -130,11 +128,10 @@ IEC registration, DGFT services, export documentation & foreign trade compliance
 - Export Invoice & Shipping Bill Guidance
 
 ### Accounting & Bookkeeping
-Monthly bookkeeping, P&L, balance sheet preparation & payroll management for businesses.
+Monthly bookkeeping, P&L, balance sheet preparation & annual accounts finalisation for businesses.
 - Monthly Bookkeeping (Tally / Zoho)
 - Profit & Loss Statement
 - Balance Sheet Preparation
-- Payroll Processing & Salary Slips
 - Bank Reconciliation Statement (BRS)
 - Accounts Receivable / Payable Management
 - Stock / Inventory Accounting
@@ -291,6 +288,9 @@ A: Yes. Non-speculative business losses can be carried forward for eight years a
 ## Frequently asked questions
 Q: Who is Sakshi Yadav & Co.?
 A: Sakshi Yadav & Co. is a firm of Chartered Accountants located at SF-57, Ansal Fortune, Sector 18, Noida (Uttar Pradesh 201301). The firm is led by CA Sakshi Yadav, a member of the Institute of Chartered Accountants of India (ICAI), and provides income tax, GST, TDS, audit, company incorporation, ROC compliance and advisory services.
+
+Q: What services does Sakshi Yadav and Co offer?
+A: Sakshi Yadav and Co (written Sakshi Yadav & Co.) handles income tax return filing and tax planning, GST registration and returns, TDS compliance, tax audit and statutory audit, company, LLP and proprietorship registration, ROC annual filings, project reports and CMA data for loans, CA certificates (including Form 15CA/15CB), and taxation of capital gains and F&O trading — for individuals, professionals, startups and businesses.
 
 Q: Where is Sakshi Yadav & Co. located and what are the office hours?
 A: Our office is at SF-57, Ansal Fortune, Sector 18, Noida, Uttar Pradesh 201301 — close to the Noida Sector 18 metro station. We are open Monday to Saturday, 10:00 AM to 7:00 PM. Clients outside Noida and Delhi NCR can work with us entirely online.

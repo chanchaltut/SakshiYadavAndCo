@@ -8,7 +8,7 @@
 // ═══════════════════════════════════════════════════════════
 import fs from 'node:fs'
 import path from 'node:path'
-import { ROUTES, getRouteMeta, headTags, siteGraph, absolute, SITE_URL } from '../src/seo/routes.js'
+import { ROUTES, getRouteMeta, headTags, siteGraph, absolute, SITE_URL, OG_IMAGE, LOGO_IMAGE, BRAND_ALIASES } from '../src/seo/routes.js'
 import { BRAND, SERVICES, SERVICE_FAQS, PARENT_SERVICES, FAQS, ABOUT, TEAM, WHY_CHOOSE_US, NAV_ITEMS } from '../src/utils/constants.js'
 import { articles } from '../src/data/articles.js'
 
@@ -60,6 +60,7 @@ const shell = (inner) => `<div class="prerender">
 function renderBody(route) {
   if (route === '/') {
     return shell(`<h1>${esc(BRAND.name)} — Chartered Accountants in Noida</h1>
+<p><img src="/logo-full.png" alt="${esc(BRAND.name)} logo" width="600" height="96"></p>
 <p>${esc(BRAND.description)}</p>
 <h2>Practice areas</h2><ul>${PARENT_SERVICES.map((s) => `<li>${s.page ? `<a href="${s.page}">${esc(s.title)}</a>` : esc(s.title)} — ${esc(s.shortDesc)}</li>`).join('')}</ul>
 <h2>${esc(TEAM[0].name)}</h2><p>${esc(TEAM[0].description)}</p>
@@ -98,9 +99,13 @@ ${faqHtml(SERVICE_FAQS[s.slug] || [])}`)
 function sitemap(today) {
   const urls = ROUTES.map((r) => {
     const m = getRouteMeta(r)
-    return `  <url>\n    <loc>${absolute(r)}</loc>\n    <lastmod>${m.lastmod || today}</lastmod>\n    <changefreq>${m.changefreq || 'monthly'}</changefreq>\n    <priority>${m.priority || '0.5'}</priority>\n  </url>`
+    // Home page carries the brand images so the logo surfaces in image search for the firm's name
+    const images = r === '/'
+      ? [LOGO_IMAGE, OG_IMAGE].map((src) => `\n    <image:image>\n      <image:loc>${src}</image:loc>\n    </image:image>`).join('')
+      : ''
+    return `  <url>\n    <loc>${absolute(r)}</loc>\n    <lastmod>${m.lastmod || today}</lastmod>\n    <changefreq>${m.changefreq || 'monthly'}</changefreq>\n    <priority>${m.priority || '0.5'}</priority>${images}\n  </url>`
   })
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join('\n')}\n</urlset>\n`
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n${urls.join('\n')}\n</urlset>\n`
 }
 
 function llmsTxt() {
@@ -110,6 +115,9 @@ function llmsTxt() {
 
 ## Key facts
 - Firm: ${BRAND.legalName}
+- Also written as: ${BRAND_ALIASES.slice(0, 4).join(', ')}
+- Type: Chartered Accountancy firm (ICAI member), India
+- Logo: ${LOGO_IMAGE}
 - Founder & Principal: ${TEAM[0].name} — ${TEAM[0].qualification}
 - Office: ${BRAND.addressText}, India
 - Phone / WhatsApp: ${BRAND.phone}

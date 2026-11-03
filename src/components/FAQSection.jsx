@@ -16,7 +16,7 @@ const FAQSection = ({ faqs = FAQS, title = 'Questions clients', accent = 'often 
             <h2 id="faq-heading" className="h-section mt-5 reveal">
               {title} <span className="text-brand-500">{accent}</span>
             </h2>
-            <div className="mt-8 rounded-2xl border border-line bg-paper p-6 shadow-soft reveal">
+            <div className="mt-8 rounded-2xl border border-line bg-paper p-6 reveal">
               <p className="font-display text-xl font-bold text-navy-800">Have a specific question?</p>
               <p className="mt-2 text-sm leading-relaxed text-muted">Speak with the firm directly — we usually respond the same working day.</p>
               <div className="mt-5 flex flex-col gap-2.5">

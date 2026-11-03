@@ -39,14 +39,14 @@ const BlogPost = () => {
           <img
             src={article.image.replace('w=800', 'w=1600')}
             alt=""
-            className="mx-auto aspect-[21/9] w-full max-w-5xl rounded-[26px] object-cover shadow-lift"
+            className="mx-auto aspect-[21/9] w-full max-w-5xl rounded-[26px] object-cover"
           />
           <div className="mx-auto mt-14 max-w-[720px]">
             <p className="font-display text-2xl leading-snug text-navy-700 sm:text-[1.7rem]">{article.excerpt}</p>
             <div className="brand-rule my-10" aria-hidden="true" />
             <ArticleBody content={article.content} />
 
-            <aside className="mt-14 rounded-2xl border border-line bg-paper p-7 shadow-soft">
+            <aside className="mt-14 rounded-2xl border border-line bg-paper p-7">
               <p className="font-display text-2xl font-bold text-navy-800">Need advice on your specific situation?</p>
               <p className="mt-2 text-[14.5px] text-muted">
                 This article is general information, not professional advice. Speak with {BRAND.name} before acting on it.
@@ -62,7 +62,7 @@ const BlogPost = () => {
             <ul className="mt-5 grid gap-4 sm:grid-cols-3">
               {more.map((a) => (
                 <li key={a.slug}>
-                  <Link to={`/blog/${a.slug}`} className="group flex h-full flex-col rounded-2xl border border-line bg-paper p-6 transition-all hover:-translate-y-1 hover:border-brand-300 hover:shadow-lift">
+                  <Link to={`/blog/${a.slug}`} className="group flex h-full flex-col rounded-2xl border border-line bg-paper p-6 transition-all hover:-translate-y-1 hover:border-brand-300">
                     <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-brand-500">{a.category}</span>
                     <span className="mt-3 font-display text-xl font-bold leading-snug text-navy-800 group-hover:text-brand-500">{a.title}</span>
                   </Link>

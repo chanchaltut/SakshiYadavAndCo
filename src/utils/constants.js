@@ -60,6 +60,10 @@ export const SITE_FLAGS = {
 export const whatsappLink = (message = `Hello, I would like to consult ${BRAND.name}.`) =>
   `https://wa.me/${BRAND.whatsapp}?text=${encodeURIComponent(message)}`
 
+// Pre-filled WhatsApp text that names exactly the service the visitor enquired about
+export const serviceEnquiry = (service, category) =>
+  `Hello ${BRAND.name}, I want the "${service}" service${category ? ` (${category})` : ''}. Please share the details and documents required.`
+
 export const mapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(BRAND.mapsQuery)}`
 
 // ─── CREDENTIAL STRIP (verifiable facts only — no inflated counters) ──
@@ -467,7 +471,7 @@ export const PARENT_SERVICES = [
     badge: 'Govt Fees Extra',
     isPopular: false,
     category: 'Trade Mark',
-    shortDesc: 'Trademark registration, objection reply, copyright & design protection — protect your brand.',
+    shortDesc: 'Trademark search, registration, objection reply, renewal & design protection — protect your brand.',
     whatsappMsg: 'Hello, I need trademark registration services from Sakshi Yadav & Co.',
     subcategories: [
       { name: 'Trademark Registration (1 Class)', price: 'Starting from ₹999 + Govt Fee', popular: true },
@@ -475,9 +479,7 @@ export const PARENT_SERVICES = [
       { name: 'Trademark Objection Reply', price: 'Starting from ₹2,999' },
       { name: 'Trademark Renewal', price: 'Starting from ₹999 + Govt Fee' },
       { name: 'Trademark Assignment / Transfer', price: 'Starting from ₹2,499' },
-      { name: 'Copyright Registration', price: 'Starting from ₹1,999 + Govt Fee' },
       { name: 'Design Registration', price: 'Starting from ₹1,999 + Govt Fee' },
-      { name: 'Geographical Indication (GI Tag)', price: 'On Consultation' },
       { name: 'Logo / Brand Protection Advisory', price: 'Starting from ₹999' },
     ]
   },
@@ -565,13 +567,12 @@ export const PARENT_SERVICES = [
     badge: null,
     isPopular: false,
     category: 'Accounting',
-    shortDesc: 'Monthly bookkeeping, P&L, balance sheet preparation & payroll management for businesses.',
+    shortDesc: 'Monthly bookkeeping, P&L, balance sheet preparation & annual accounts finalisation for businesses.',
     whatsappMsg: 'Hello, I need Accounting & Bookkeeping services from Sakshi Yadav & Co.',
     subcategories: [
       { name: 'Monthly Bookkeeping (Tally / Zoho)', price: 'Starting from ₹1,999/month', popular: true },
       { name: 'Profit & Loss Statement', price: 'Starting from ₹1,999' },
       { name: 'Balance Sheet Preparation', price: 'Starting from ₹1,999' },
-      { name: 'Payroll Processing & Salary Slips', price: 'Starting from ₹1,999/month' },
       { name: 'Bank Reconciliation Statement (BRS)', price: 'Starting from ₹1,999' },
       { name: 'Accounts Receivable / Payable Management', price: 'Starting from ₹1,999/month' },
       { name: 'Stock / Inventory Accounting', price: 'Starting from ₹1,999/month' },
@@ -651,7 +652,7 @@ export const PROCESS_STEPS = [
 
 // ─── HERO ───────────────────────────────────────────────────
 export const HERO = {
-  eyebrow: 'Chartered Accountants · Sector 18, Noida',
+  eyebrow: 'Chartered Accountants, Noida',
   heading: 'Clarity in tax.',
   headingAccent: 'Confidence in compliance.',
   description:
@@ -703,6 +704,11 @@ export const FAQS = [
   },
   {
     id: 2,
+    q: 'What services does Sakshi Yadav and Co offer?',
+    a: 'Sakshi Yadav and Co (written Sakshi Yadav & Co.) handles income tax return filing and tax planning, GST registration and returns, TDS compliance, tax audit and statutory audit, company, LLP and proprietorship registration, ROC annual filings, project reports and CMA data for loans, CA certificates (including Form 15CA/15CB), and taxation of capital gains and F&O trading — for individuals, professionals, startups and businesses.'
+  },
+  {
+    id: 9,
     q: 'Where is Sakshi Yadav & Co. located and what are the office hours?',
     a: 'Our office is at SF-57, Ansal Fortune, Sector 18, Noida, Uttar Pradesh 201301 — close to the Noida Sector 18 metro station. We are open Monday to Saturday, 10:00 AM to 7:00 PM. Clients outside Noida and Delhi NCR can work with us entirely online.'
   },

@@ -8,7 +8,7 @@ const SectionHeading = ({ id, eyebrow, title, accent, lede, align = 'left', tone
       {eyebrow && <p className={`eyebrow ${light ? 'eyebrow-light' : ''} ${center ? 'justify-center' : ''}`}>{eyebrow}</p>}
       <h2 id={id} className={`h-section mt-5 ${light ? '!text-white' : ''}`}>
         {title}
-        {accent && <> <span className={light ? 'text-white/80' : 'text-brand-500'}>{accent}</span></>}
+        {accent && <> <span className={light ? 'text-shine' : 'text-brand-500'}>{accent}</span></>}
       </h2>
       {lede && <p className={`lede mt-5 ${light ? '!text-white/80' : ''}`}>{lede}</p>}
     </div>

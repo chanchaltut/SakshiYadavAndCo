@@ -23,7 +23,7 @@ const ProcessSection = () => {
           <ol className="grid gap-10 md:grid-cols-4 md:gap-6">
             {PROCESS_STEPS.map((step, i) => (
               <li key={step.step} className="reveal relative flex gap-5 md:block md:text-center" style={{ transitionDelay: `${i * 100}ms` }}>
-                <span className="relative z-10 flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-full bg-brand-500 text-white shadow-brand ring-8 ring-ivory md:mx-auto">
+                <span className="relative z-10 flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-full bg-brand-500 text-white ring-8 ring-ivory md:mx-auto">
                   <i className={`${step.icon} text-[22px]`} aria-hidden="true" />
                 </span>
                 <div>

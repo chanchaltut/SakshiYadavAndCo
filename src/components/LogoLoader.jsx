@@ -1,20 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { LogoMark } from './Logo';
 import { BRAND } from '../utils/constants';
 
-// Large lock-up used by the loader — rendered twice: a faded grey base and the red reveal on top
+// Large lock-up used by the loader — rendered twice: a faded grey base and the full-colour reveal on top
 const LoaderLockup = ({ ghost = false }) => (
-  <span className={`flex items-center gap-4 sm:gap-5 ${ghost ? 'opacity-[0.12] grayscale' : ''}`}>
-    <LogoMark className="h-14 w-14 sm:h-[72px] sm:w-[72px]" />
-    <span className="flex flex-col leading-none">
-      <span className="font-display text-[26px] font-extrabold tracking-[-0.03em] text-navy-800 whitespace-nowrap sm:text-[34px]">
-        Sakshi Yadav <span className="text-brand-500">&amp;</span> Co.
-      </span>
-      <span className="mt-2 text-[10px] font-bold uppercase tracking-[0.32em] text-brand-500 whitespace-nowrap sm:text-[11px]">
-        Chartered Accountants
-      </span>
-    </span>
-  </span>
+  <img
+    src="/logo-full.webp"
+    alt=""
+    width="440"
+    height="70"
+    className={`block h-12 w-auto sm:h-[70px] ${ghost ? 'opacity-[0.12] grayscale' : ''}`}
+  />
 );
 
 /**

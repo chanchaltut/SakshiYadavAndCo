@@ -2,98 +2,85 @@
 <html>
 <head>
 <meta charset="utf-8">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=block">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=block">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html, body { width: 1200px; height: 630px; overflow: hidden; }
   body {
-    background: #FBFAF7;
-    font-family: Inter, sans-serif;
-    color: #0A132B;
     position: relative;
+    font-family: Inter, sans-serif;
+    color: #fff;
+    /* same as .bg-night on the site */
+    background:
+      radial-gradient(900px 600px at 88% -12%, rgba(192,21,48,0.42), transparent 60%),
+      radial-gradient(760px 520px at -8% 115%, rgba(192,21,48,0.24), transparent 60%),
+      linear-gradient(160deg, #0A132B 0%, #070E21 60%, #040817 100%);
   }
-  .dots {
+  .grid {
     position: absolute; inset: 0;
-    background-image: radial-gradient(circle, rgba(192,21,48,0.10) 1.4px, transparent 1.4px);
-    background-size: 30px 30px;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: radial-gradient(ellipse at 60% 50%, #000 25%, transparent 78%);
   }
-  .panel {
-    position: absolute; top: 0; right: 0; bottom: 0; width: 330px;
-    background: linear-gradient(135deg, #C01530 0%, #A8102A 55%, #8B0019 100%);
-    overflow: hidden;
+  .rule { position: absolute; left: 0; right: 0; top: 0; height: 6px; background: linear-gradient(90deg, #860B1F, #DD5A6F, #860B1F); }
+
+  .content { position: absolute; left: 76px; top: 70px; bottom: 62px; width: 760px; display: flex; flex-direction: column; }
+  .lockup { height: 70px; width: auto; align-self: flex-start; }
+  .eyebrow {
+    align-self: flex-start; margin-top: 50px;
+    display: inline-flex; align-items: center; gap: 10px;
+    border: 1px solid rgba(255,255,255,0.16); background: rgba(255,255,255,0.06);
+    border-radius: 999px; padding: 9px 18px 9px 10px;
+    font-size: 15px; font-weight: 600; color: rgba(255,255,255,0.9);
   }
-  .panel .ring { position: absolute; border-radius: 50%; border: 56px solid rgba(255,255,255,0.07); }
-  .panel .r1 { width: 380px; height: 380px; right: -140px; top: -120px; }
-  .panel .r2 { width: 300px; height: 300px; left: -120px; bottom: -110px; border-width: 44px; }
-  .panel .mono {
-    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -52%);
-    font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 210px; letter-spacing: -8px;
-    color: #fff; line-height: 1;
-  }
-  .panel .cap {
-    position: absolute; left: 0; right: 0; bottom: 70px; text-align: center;
-    color: rgba(255,255,255,0.88); font-size: 13px; font-weight: 800; letter-spacing: 3.4px; text-transform: uppercase;
-  }
-  .topbar { position: absolute; left: 0; top: 0; right: 330px; height: 8px; background: #C01530; }
-  .content { position: absolute; left: 72px; top: 66px; right: 400px; bottom: 60px; display: flex; flex-direction: column; }
-  .brand { display: flex; align-items: center; gap: 16px; }
-  .brand svg { width: 60px; height: 60px; }
-  .name { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 32px; line-height: 1; letter-spacing: -0.8px; }
-  .name span { color: #C01530; }
-  .desc { margin-top: 8px; font-size: 12px; font-weight: 800; letter-spacing: 3.8px; color: #C01530; text-transform: uppercase; }
-  .badge {
-    align-self: flex-start; margin-top: 44px;
-    display: inline-flex; align-items: center; gap: 8px;
-    border: 1px solid rgba(192,21,48,0.28); background: rgba(192,21,48,0.08); color: #C01530; border-radius: 999px;
-    padding: 9px 18px; font-size: 13px; font-weight: 800; letter-spacing: 2.2px; text-transform: uppercase;
-  }
-  .badge i { width: 7px; height: 7px; border-radius: 50%; background: #C01530; }
+  .eyebrow i { width: 22px; height: 22px; border-radius: 50%; background: #C01530; display: inline-flex; align-items: center; justify-content: center; }
+  .eyebrow i::after { content: ''; width: 7px; height: 7px; border-radius: 50%; background: #fff; }
   h1 {
-    margin-top: 22px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800;
-    font-size: 64px; line-height: 1.06; letter-spacing: -2.4px;
+    margin-top: 22px;
+    font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800;
+    font-size: 60px; line-height: 1.08; letter-spacing: -2.2px;
   }
-  h1 span { display: block; color: #C01530; }
-  .services { margin-top: 24px; font-size: 19px; font-weight: 600; color: #667085; }
-  .services b { color: #C01530; font-weight: 800; margin: 0 8px; }
+  h1 span {
+    display: block;
+    background: linear-gradient(90deg, #FF7A90 0%, #E2405A 45%, #FF8FA3 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .services { margin-top: 26px; font-size: 20px; font-weight: 500; color: rgba(255,255,255,0.68); }
+  .services b { color: #EC687C; margin: 0 9px; }
   .bar {
     margin-top: auto; display: flex; align-items: center; gap: 30px;
-    padding-top: 20px; border-top: 1px solid #EDE7E8;
-    font-size: 17px; font-weight: 700; color: #0A132B;
+    padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.12);
+    font-size: 18px; font-weight: 600; color: rgba(255,255,255,0.9);
   }
   .bar div { display: flex; align-items: center; gap: 10px; }
-  .dot { width: 8px; height: 8px; background: #C01530; transform: rotate(45deg); flex: none; }
+  .dot { width: 7px; height: 7px; background: #E2405A; transform: rotate(45deg); flex: none; }
+
+  .tile {
+    position: absolute; right: 76px; top: 50%; transform: translateY(-50%);
+    width: 270px; height: 270px; border-radius: 60px;
+    background: #fff; border: 1px solid #EDE7E8;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .tile img { width: 210px; height: 210px; }
 </style>
 </head>
 <body>
-  <div class="dots"></div>
-  <div class="topbar"></div>
-  <div class="panel">
-    <div class="ring r1"></div>
-    <div class="ring r2"></div>
-    <div class="mono">SY</div>
-    <div class="cap">Chartered Accountants</div>
-  </div>
+  <div class="grid"></div>
+  <div class="rule"></div>
+
   <div class="content">
-    <div class="brand">
-      <svg viewBox="0 0 64 64">
-        <rect width="64" height="64" rx="14" fill="#C01530"/>
-        <rect x="4.5" y="4.5" width="55" height="55" rx="10.5" fill="none" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="1.2"/>
-        <text x="32" y="41.5" text-anchor="middle" font-family="Plus Jakarta Sans" font-weight="800" font-size="25" letter-spacing="-0.5" fill="#FFFFFF">SY</text>
-        <path d="M24 49h16" stroke="#FFFFFF" stroke-opacity="0.7" stroke-width="1.4" stroke-linecap="round"/>
-      </svg>
-      <div>
-        <div class="name">Sakshi Yadav <span>&amp;</span> Co.</div>
-        <div class="desc">Chartered Accountants</div>
-      </div>
-    </div>
-    <div class="badge"><i></i>ICAI Member Firm · Noida</div>
+    <img class="lockup" src="../../public/logo-full-light.webp" alt="">
+    <div class="eyebrow"><i></i>ICAI Member Firm · Sector 18, Noida</div>
     <h1>Clarity in tax.<span>Confidence in compliance.</span></h1>
-    <div class="services">Income Tax<b>·</b>GST<b>·</b>Audit<b>·</b>Company Law<b>·</b>Advisory</div>
+    <div class="services">Income Tax<b>·</b>GST<b>·</b>Audit<b>·</b>ROC<b>·</b>Advisory</div>
     <div class="bar">
-      <div><span class="dot"></span>Sector 18, Noida</div>
       <div><span class="dot"></span>+91 87962 15611</div>
       <div><span class="dot"></span>sakshiyadavandco.in</div>
     </div>
   </div>
+
+  <div class="tile"><img src="../../public/sy-mark.webp" alt=""></div>
 </body>
 </html>

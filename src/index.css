@@ -30,7 +30,7 @@
   }
 
   body {
-    @apply font-sans text-navy-800 bg-white antialiased;
+    @apply font-sans text-navy-800 bg-ivory antialiased;
     overflow-x: hidden;
     line-height: 1.65;
     font-feature-settings: 'cv11', 'ss01';
@@ -109,10 +109,10 @@
     @apply inline-flex items-center justify-center gap-2.5 rounded-full px-7 py-3.5 text-sm font-bold tracking-wide transition-all duration-300 min-h-[48px];
   }
   .btn-primary {
-    @apply btn bg-brand-500 text-white hover:bg-brand-600 hover:shadow-brand hover:-translate-y-0.5 active:scale-[0.98];
+    @apply btn bg-brand-500 text-white hover:bg-brand-600 hover:-translate-y-0.5 active:scale-[0.98];
   }
   .btn-light {
-    @apply btn bg-white text-brand-500 hover:bg-brand-50 hover:-translate-y-0.5 hover:shadow-lift;
+    @apply btn bg-white text-brand-500 hover:bg-brand-50 hover:-translate-y-0.5;
   }
   .btn-outline {
     @apply btn border-2 border-brand-500 text-brand-500 hover:bg-brand-600 hover:border-brand-600 hover:text-white;
@@ -122,14 +122,11 @@
   }
 
   .card {
-    @apply rounded-2xl border border-line bg-white shadow-soft;
+    @apply rounded-2xl border border-line bg-white;
   }
 
   .card-hover {
     @apply transition-all duration-300 hover:-translate-y-1 hover:border-brand-500/40;
-  }
-  .card-hover:hover {
-    box-shadow: 0 12px 40px rgba(192, 21, 48, 0.12);
   }
 
   .link-underline {
@@ -157,6 +154,51 @@
     background-image: radial-gradient(circle, rgba(255,255,255,0.14) 1px, transparent 1px);
     background-size: 28px 28px;
   }
+
+  /* Fine grid lines for dark bands */
+  .grid-bg-dark {
+    background-image:
+      linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: radial-gradient(ellipse at center, #000 30%, transparent 80%);
+    mask-image: radial-gradient(ellipse at center, #000 30%, transparent 80%);
+  }
+
+  /* Deep navy band with crimson glow */
+  .bg-night {
+    background:
+      radial-gradient(60rem 40rem at 85% -10%, rgba(192,21,48,0.38), transparent 60%),
+      radial-gradient(50rem 36rem at -10% 110%, rgba(192,21,48,0.22), transparent 60%),
+      linear-gradient(160deg, #0A132B 0%, #070E21 60%, #040817 100%);
+  }
+
+  /* Soft tinted light background — warmer than plain white */
+  .bg-mesh-light {
+    background:
+      radial-gradient(40rem 30rem at 0% 0%, rgba(192,21,48,0.07), transparent 60%),
+      radial-gradient(40rem 30rem at 100% 100%, rgba(74,82,104,0.08), transparent 60%),
+      linear-gradient(180deg, #FBFAF7 0%, #FDF2F4 100%);
+  }
+
+  /* Animated crimson gradient text */
+  .text-shine {
+    background: linear-gradient(90deg, #FF5A76 0%, #C01530 25%, #FF8FA3 50%, #C01530 75%, #FF5A76 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    @apply animate-shine;
+  }
+
+  .glass-dark {
+    @apply border border-white/10 bg-white/[0.06] backdrop-blur-xl;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+  }
+
+  /* Content passed into the dark PageHeader */
+  .page-header-actions .btn-outline { @apply border-white/60 text-white hover:border-white hover:bg-white hover:text-brand-500; }
+  .page-header-actions .text-muted { @apply text-white/60; }
 
   .red-gradient {
     background: linear-gradient(135deg, #C01530 0%, #A8102A 55%, #8B0019 100%);

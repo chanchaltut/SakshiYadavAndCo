@@ -5,7 +5,7 @@ import { HIGHLIGHTS } from '../utils/constants';
 const HighlightsBar = () => (
   <section aria-label="Firm at a glance" className="relative z-10 -mt-14 sm:-mt-16">
     <div className="container-x">
-      <ul className="grid grid-cols-2 overflow-hidden rounded-2xl border border-line border-t-[3px] border-t-brand-500 bg-white shadow-lift lg:grid-cols-4">
+      <ul className="grid grid-cols-2 overflow-hidden rounded-2xl border border-line border-t-[3px] border-t-brand-500 bg-white lg:grid-cols-4">
         {HIGHLIGHTS.map((item, i) => (
           <li
             key={item.label}
